@@ -14,6 +14,9 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Définition du répertoire de travail
 WORKDIR /var/www/html
 
+# Ajouter l'utilisateur www-data si il n'existe pas déjà
+RUN useradd -m www-data || true
+
 # Copie des fichiers du projet
 COPY . /var/www/html/
 
