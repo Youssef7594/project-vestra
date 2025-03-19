@@ -18,7 +18,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html/
 
 # Donne les permissions correctes pour les logs et le cache Symfony
-RUN chown -R www-data:www-data /var/www/html/var
+RUN mkdir -p /var/www/html/var && chown -R www-data:www-data /var/www/html/var
 
 # Exposition du port Apache
 EXPOSE 80
