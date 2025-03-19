@@ -1,0 +1,26 @@
+# Ignorer les fichiers de logs et de cache
+var/
+vendor/
+node_modules/
+
+# Ignorer les fichiers de configuration locaux
+.env
+.env.local
+.env.*.local
+
+# Ignorer les fichiers et dossiers liés à Git
+.git
+.gitignore
+
+# Ignorer les fichiers temporaires et autres fichiers inutiles
+*.log
+*.lock
+*.cache
+*.DS_Store
+*.swp
+.idea/
+.vscode/
+nbproject/
+Thumbs.db
+
+# Ignorer les fichiers de dépendances de
