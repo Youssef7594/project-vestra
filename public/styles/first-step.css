@@ -1,0 +1,49 @@
+
+.body-first-step{
+    background: linear-gradient(135deg, #9f9ff3, #b05bc573 );
+
+}
+
+.main-first-step{
+
+    margin-top: 70px;
+    padding-top: 100px;
+    text-align: center;
+
+    #text-first{
+
+        h1{
+            color: rgb(8, 8, 8);
+            text-shadow: 5px 3px  4px rgb(249, 244, 244);
+            margin-bottom: 30px;
+            font-family: monserrat;
+        }
+
+        p{
+            color: rgb(8, 8, 8);
+            text-shadow: 5px 3px  4px rgb(249, 244, 244);
+            font-size: 20px;
+            margin-left: 120px;
+            margin-right: 120px;
+        }
+
+        h2{
+            color: rgb(8, 8, 8);
+            text-shadow: 5px 3px  4px rgb(249, 244, 244);
+            margin-top: 30px;
+        }
+
+        .btn{
+            margin-top: 40px;
+        }
+    }
+
+}
+
+
+.btn:hover{
+    transform: scale(1.05);
+    transition: transform 1s ease;
+}
+
+

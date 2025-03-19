@@ -1,0 +1,208 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vestra{% endblock %}
+
+{% block body %}
+
+<body class="body-project-page">
+
+    <main class="main-project-page">
+
+    {# partie du haut #}
+
+    <div class="top-page-project">
+
+    <h1>{{ project.title }}</h1>
+
+
+    <p>{{ project.description }}</p>
+
+    </div>
+
+    <div class="nom-proprietaire">
+
+    {% if projectOwner %}
+        <p>Publié par : 
+            <a href="{{ path('app_profile', {'id': projectOwner.id}) }}">
+                {{ projectOwner.username }}
+            </a>
+        </p>
+    {% else %}
+        <p>Auteur inconnu</p>
+    {% endif %}
+</div>
+
+
+
+
+
+    {% if app.user and app.user.id != project.getUserId() %}
+    <div class="report-button">
+        <a href="{{ path('app_report_project', { id: project.id }) }}" class="btn">
+            Signaler
+        </a>
+    </div>
+{% endif %}
+
+
+
+
+
+
+    {# partie contenue carouselle etc... #}
+
+    <div id="projectCarousel" class="carousel slide w-50 mx-auto" data-bs-ride="carousel">
+
+    <div class="delete-project-project">
+    {# pouvoir supprimer un project #}
+    {% if app.user and app.user.id == project.userId %}
+    <form method="POST" action="{{ path('app_projects_delete', {'id': project.id}) }}">
+        <button type="submit" onclick="return confirm('Voulez-vous vraiment supprimer ce projet ? Cette action est irréversible.');">
+            <i class="fa-solid fa-trash" style="color: #e82011;"></i> Supprimer le projet
+        </button>
+    </form>
+    {% endif %}
+    </div>
+
+    <div class="carousel-indicators">
+        {% set index = 0 %}
+        {% for image in images %}
+            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="{{ index }}" class="{% if index == 0 %}active{% endif %}" aria-label="Slide {{ index + 1 }}"></button>
+            {% set index = index + 1 %}
+        {% endfor %}
+        {% for video in videos %}
+            <button type="button" data-bs-target="#projectCarousel" data-bs-slide-to="{{ index }}" class="{% if index == 0 %}active{% endif %}" aria-label="Slide {{ index + 1 }}"></button>
+            {% set index = index + 1 %}
+        {% endfor %}
+    </div>
+
+    <div class="carousel-inner" style="overflow: hidden;">
+
+        {% set first = true %}
+
+        {# Affichage des images #}
+        {% for image in images %}
+            <div class="carousel-item {% if first %}active{% set first = false %}{% endif %}">
+                <img src="{{ asset('uploads/' ~ image) }}" class="d-block" alt="Image du projet">
+            </div>
+        {% endfor %}
+
+        {# Affichage des vidéos #}
+        {% for video in videos %}
+            <div class="carousel-item {% if first %}active{% set first = false %}{% endif %}">
+                <video class="d-block" controls>
+                    <source src="{{ asset('uploads/' ~ video) }}" type="video/mp4">
+                    Votre navigateur ne supporte pas la lecture des vidéos.
+                </video>
+            </div>
+        {% endfor %}
+
+    </div>
+
+     
+</div>
+
+
+
+
+
+    {# partie interaction avec le project  #}
+
+        {# Afficher le nombre de likes #}
+
+        {# Formulaire pour like/unlike un projet #}
+        <div class="votes-project">
+            <form action="{{ path('app_votes_app_votes_like', {'projectId': project.id}) }}" method="POST" id="like-form">
+                <button type="submit">
+                    {% if user and project.votes|filter(v => v.user.id == user.id)|length > 0 %}
+                        ❤️ Vote
+                    {% else %}
+                        ❤️ Vote
+                    {% endif %}
+                </button>
+            </form>
+
+            <p><span id="like-count">{{ project.votes|length }}</span>Votes</p>
+        </div>
+
+
+
+        {# Partie pour partager #}
+        <div class="share-buttons">
+            <p>Partager ce projet :</p>
+
+            <!-- Bouton pour copier le lien -->
+        <button onclick="copyToClipboard('{{ app.request.uri }}')" class="btn btn-secondary">
+            Copier le lien
+        </button>
+
+        <!-- Boutons de partage sur les réseaux sociaux -->
+        <a href="https://www.facebook.com/sharer/sharer.php?u={{ app.request.uri }}" target="_blank" class="btn btn-primary">
+            <i class="fa-brands fa-facebook fa-2xl"></i>
+        </a>
+
+        <a href="https://twitter.com/intent/tweet?url={{ app.request.uri }}&text=Regarde ce projet incroyable !" target="_blank" class="btn btn-dark">
+            <i class="fa-brands fa-x-twitter fa-2xl"></i>
+        </a>
+
+        <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ app.request.uri }}" target="_blank" class="btn btn-primary  ">
+            <i class="fa-brands fa-linkedin fa-2xl"></i>
+        </a>
+
+        <a href="https://api.whatsapp.com/send?text={{ app.request.uri }}" target="_blank" class="btn btn-success">
+            <i class="fa-brands fa-whatsapp fa-2xl"></i>
+        </a>
+        </div>
+
+
+
+
+
+
+
+    {##### Partie commentaire #########}
+    <section class="comments-project">
+    <h3>Comments</h3>
+
+    <!-- Formulaire pour ajouter un commentaire si l'utilisateur est connecté -->
+    {% if app.user %}
+        <h4 id="add-comment">Add a comment</h4>
+        <form id="form-add-comment" method="POST" action="{{ path('app_comments', {'projectId': project.id}) }}">
+            <textarea name="content" required placeholder="Add a comment"></textarea>
+        <button id="submit-comment" type="submit">Publier</button>
+    </form>
+    {% endif %}
+
+
+    <div class="comments-section">
+        {% for comment in comments %}
+            <div class="comment">
+                {% if app.user and app.user.id == comment.user_id.S %}
+                    <!-- Bouton de suppression visible uniquement pour l'utilisateur ayant posté le commentaire -->
+                    <form method="POST" action="{{ path('app_delete_comment', {'commentId': comment.id.S}) }}" data-turbo="false">
+                        <button type="submit"><i class="fa-solid fa-trash" style="color: #e82011;"></i></button>
+                    </form>
+                {% endif %}
+                <p><strong>{{ comment.user_id.S }}</strong> - {{ comment.created_at.S }}</p>
+                <p>{{ comment.content.S }}</p>
+
+
+                
+            </div>
+            {% else %}
+            <p>Aucun commentaire pour le moment.</p>
+            {% endfor %}
+            
+    </div>
+    </section>
+
+
+    
+
+
+</main>
+
+
+
+</body>
+{% endblock %}

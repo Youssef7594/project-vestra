@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vestra{% endblock %}
+
+{% block body %}
+
+<body id="body-projects">
+    
+
+    <main id="main-projects">
+
+        <h1 id="title-projects">PROJECTS</h1>
+
+        <div class="action-projects">
+            <a href="{{ path('app_projects_create') }}" id="open-new-project-form">New Project</a>
+            <a href="{{ path('app_project_discovert') }}">Discover <i class="fa-solid fa-compass fa-lg"></i></a> 
+            
+        </div>
+
+        {# <section id="all-projects">
+
+            <h2>Your projects:</h2>
+            <p>(All your projects publish)</p>
+
+            <div class="projects-image">
+            
+            </div>
+        </section>
+
+        <section id="all-success">
+
+            <h2>All your best projects:</h2>
+            <p>(Your most loved projects)</p>
+
+            <div class="projects-image">
+            
+            </div>
+        </section> #}
+
+
+
+    </main>
+
+
+</body>
+{% endblock %}

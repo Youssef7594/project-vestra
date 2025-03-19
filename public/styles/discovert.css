@@ -1,0 +1,43 @@
+.body-discovert{
+    background-image: url(../image/register.png);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.main-discovert{
+    margin-top: 80px;
+    padding-top: 100px;
+    text-align: center;
+
+    h2{
+        color: rgb(255, 255, 255);
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+    .projects-list{
+
+        .project-item{
+            margin-top: 100px;
+            border: solid purple;
+            margin-left: 200px;
+            margin-right: 200px;
+            background-color: rgba(222, 175, 240, 0.347);
+
+            a{ 
+                text-decoration: none;
+                color: white;
+                text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                
+            
+            }
+        }
+
+        .project-item:hover{
+            transform: scale(1.05);
+            transition: transform 1s ease;
+        }
+        
+    }
+}
+

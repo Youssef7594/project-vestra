@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello NotificationsController!{% endblock %}
+
+{% block body %}
+<body class="body-notifications">
+    <main class="main-notifications">
+
+    <h1><strong>Notifications</strong></h1>
+
+
+        <div class="notifications-list">
+            {% for notification in notifications %}
+                <div class="notification {% if not notification.seen %}unread{% endif %}">
+                    <p>{{ notification.message }}</p>
+                    <small>{{ notification.createdAt|date('d/m/Y H:i') }}</small>
+                </div>
+            {% else %}
+                <p>Aucune notification pour le moment.</p>
+            {% endfor %}
+        </div>
+
+    <div class="delete-notif">
+        <form method="POST" action="{{ path('app_notifications_clear') }}">
+            <button type="submit"><i class="fa-solid fa-trash fa-2xl"></i></button>
+        </form>
+    </div>
+    
+    
+
+    
+
+    </main>
+</body>
+{% endblock %}

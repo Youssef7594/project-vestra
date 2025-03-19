@@ -1,0 +1,211 @@
+/* Partie messages */
+.body-messages{
+    background: linear-gradient(135deg, #6262e2, #52aaca73 );
+}
+
+.main-messages{
+    margin-top: 80px;
+    padding-top: 100px;
+    text-align: center;
+
+
+
+    .messages-conversation{
+
+        h2{
+            color: white;
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+        }
+    }
+
+    ul{
+        
+        li{
+            list-style: none;
+            #conv-priv {
+                position: relative; /* Permet de positionner le badge par rapport à cette div */
+                display: flex; /* Assure un alignement correct des éléments (image + texte) */
+                align-items: center; /* Aligne verticalement le contenu */
+                margin-left: 400px;
+                margin-right: 400px;
+                margin-top: 20px;
+            }
+            
+            /* Style pour l'image de profil */
+            .profile-pic {
+                width: 40px; /* Largeur de l'image */
+                height: 40px; /* Hauteur de l'image */
+                border-radius: 50%; /* Image ronde */
+                margin-right: 10px; /* Espace entre l'image et le texte */
+            }
+
+
+            
+        }
+
+
+        
+    }
+
+    /* Style pour le badge de notification */
+.notif-badge {
+    position: absolute; 
+    top: -5px; 
+    right: -5px; 
+    background-color: red; 
+    color: white; 
+    font-size: 12px; 
+    width: 18px; 
+    height: 18px; 
+    border-radius: 50%; 
+    text-align: center; 
+    line-height: 18px; 
+    font-weight: bold; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+
+    .notif-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: red;
+    border-radius: 50%;
+    margin-left: 5px;
+}
+
+
+/* Optionnel: Style du lien */
+#name-conv {
+    display: flex; /* Flexbox pour aligner le texte avec l'image */
+    align-items: center; /* Centrage vertical du texte */
+    text-decoration: none; /* Retirer la décoration du lien */
+    color: black; /* Couleur du texte */
+}
+
+
+    .more-connection{
+        margin-top: 100px;
+        padding-bottom: 140px;
+
+        h2{
+            margin-bottom: 50px;
+        }
+
+        a{
+            text-decoration: none;
+            color: rgb(12, 12, 12);
+            border: solid white;
+            padding: 20px;
+        }
+
+        
+    }
+
+
+    /* css dans la conversation */
+    #form-send-messages{
+        margin-top: 40px;
+
+        textarea{
+            width: 250px;
+            
+        }
+
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+#click-here-link:hover{
+
+    background-color: rgb(240, 248, 255);
+}
+
+
+#conv-priv:hover{
+
+    background-color: rgb(228, 61, 23);
+}
+
+
+
+
+
+
+        /* Partie notification */
+
+
+.body-notifications{
+    background: linear-gradient(135deg, #6262e2, #52aaca73 );
+}
+
+.main-notifications{
+    margin-top: 120px;
+    padding-top: 120px;
+    padding-bottom: 200px;
+    text-align: center;
+
+
+    .notifications-list{
+        margin-top: 20px;
+
+        .notification{
+            border: solid;
+            margin-left: 500px;
+            margin-right: 500px;
+            margin-top: 30px;
+            border-radius: 90px;
+            background-color: #ffc8dd;
+        }
+    }
+
+    .delete-notif{
+        margin-top: 30px;
+
+        form{
+
+            button{
+                padding: 20px;
+                border-radius: 90px;
+                background-color: #fa5151;
+                color: white;
+            }
+        }
+    }
+
+
+        /* Styles pour les petits écrans */
+    @media screen and (max-width: 1058px) {
+        .notifications-list{
+            
+    
+            .notification{
+                
+                margin-left: 200px;
+                margin-right: 200px;
+                
+            }
+        }
+    }
+}
+
+
+
+    /* Message flash succes ou error */
+
+
+    .message-flash{
+        position: absolute;
+        top: 70px;
+        text-align: center;
+        width: 100%;
+    }

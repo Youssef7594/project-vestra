@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+
+<body id="body-home">
+    
+
+<main class="main-home">
+    <h1 class="title-home">VESTRA</h1>
+
+    <div id="slogan">
+        <h2 id="slogan-text"><strong>Empowering Creativity, Connecting Opportunities.</strong></h2>
+
+    </div>
+
+    {# lien pour continuer ou créer un project #}
+
+    <section id="beginning">
+
+        <div class="card step" style="width: 20rem;">
+            <div class="card-body">
+                <h5 class="card-title">Are You NEW ?</h5>
+                <p class="card-text">If you are full of ambition and desire then start!</p>
+                <a href="{{ path('app_first-step') }}" class="btn btn-primary">FIRST STEP ?</a>
+            </div>
+        </div>
+
+
+        <div class="get-start">
+
+            <a href="{{ path('app_projects') }}">GET START!</a>
+
+        </div>
+
+    
+    </section>
+
+    <p id="Building-your-success">Building your success</p>
+
+
+
+    {# toute les carte du menu #}
+
+    <article id="space-menu">
+
+    <h2><strong>Menu</strong></h2>
+
+    <section id="menu">
+        
+
+        
+        <div class="card card-one" style="width: 18rem;">
+        
+            <div class="card-body">
+                
+                <h3 class="card-title">voting ranking</h3>
+                <p class="card-text">Check the voting ranking now!</p>
+                <a href="{{ path('app_project_classement') }}" class="btn btn-primary w-75">Go Now</a>
+                
+            </div>
+            
+        </div>
+
+        <div class="card card-two" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">continue</h3>
+                <p class="card-text">Continue your success!</p>
+                <a href="{{ path('app_projects') }}" class="btn btn-primary w-75">Go Now</a>
+            </div>
+        </div>
+
+        <div class="card card-three" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">Network</h3>
+                <p class="card-text">Create a network for yourself!</p>
+                <a href="{{ path('app_network') }}" class="btn btn-primary w-75">Go Now</a>
+            </div>
+        </div>
+
+        <div class="card card-four" style="width: 18rem;">
+            <div class="card-body">
+                <h3 class="card-title">Events</h3>
+                <p class="card-text">Current event!</p>
+                <a href="{{ path('app_event-page') }}" class="btn btn-primary w-75">Go Now</a>
+            </div>
+        </div>
+
+    
+    </section>
+
+
+    
+    </article>
+
+    <article class="mission-vestra">
+    
+        <h2>The Mission of Vestra</h2>
+
+        <p>At Vestra, our mission is clear: to provide a platform for expression and connection that elevates the work of others to the top. <br>
+        We believe every project deserves to be seen, supported, and valued. That’s why we created a space where talents can share their passions, connect with opportunities, and receive constructive feedback from an engaged community <br>
+        A Strong Community Commitment
+        Vestra is not just an application; it’s a network where dreams come to life and talents find opportunities. <br> 
+        Join us to celebrate creativity and bring new energy to projects that deserve recognition.</p>
+    
+    </article>
+    
+    
+
+    
+
+
+
+</main>
+
+</body>
+
+{% endblock %}

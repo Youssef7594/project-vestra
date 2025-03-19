@@ -1,0 +1,104 @@
+    {% extends 'base.html.twig' %}
+
+    {% block title %}Hello UsersController!{% endblock %}
+
+    {% block body %}
+
+    <body class="body-profile">
+        <main class="main-profile">
+
+
+
+    <div class="profile-header" style="background-image: url('{{ user.getBackgroundImage() }}');">
+
+        <img src="{{ user.getProfilePicture() ?? 'image/singapore.jpg' }}" alt="{{ user.username }}" class="profile-picture">
+        <h1>{{ user.username }} :</h1>
+
+        
+
+        {# {% if isOwner %} 
+        <p>{{ roles|join(', ') }}</p> 
+        {% endif %} #}
+
+        {# bouton de déconextion  #}
+        
+
+
+        </div>
+
+    {% if isOwner %}
+            <li id="logout-button">
+                <a href="{{ path('app_logout') }}" class="logout-btn">Déconnexion</a>
+            </li>
+        {% endif %}
+
+        <div class="interactive">
+            {% if not isOwner %}
+            <a href="{{ path('app_messages_conversation', {'id': user.id}) }}">
+            <button id="contact-btn">Contacter</button>
+            </a>
+            {% endif %}
+
+
+            {% if not isOwner %}
+            <button id="follow-btn" data-user-id="{{ user.id }}">
+                {% if isFollowing %}Se désabonner{% else %}Suivre{% endif %}
+            </button>
+        {% endif %}
+        
+    </div>
+
+
+        <div class="profile-content">
+
+        <h2 id="news-profile"><strong>News</strong></h2>
+        <div class="edit-profile">
+            
+            {{ form_start(form, {'attr': {'enctype': 'multipart/form-data'}}) }}
+
+                        {{ form_row(form.who_am_i) }}
+                        {{ form_row(form.objectives) }}
+                    {{ form_row(form.experience) }}
+                    {{ form_row(form.qualities) }}
+        
+                {% if isOwner %}
+                    {{ form_row(form.profile_picture) }}
+                    {{ form_row(form.background_image) }}
+                    <button id="submit-profile" type="submit">Enregistrer les modifications</button>
+                {% endif %}
+            
+    {{ form_end(form) }}
+
+            
+                
+                
+            
+            </div>
+
+
+
+        {# Affichage de tout les project poster par l'utilisateur #}
+
+            <div class="project-profile">
+            <h2>Projects</h2>
+            {% for project in projects %}
+                <div class="project-in-profile">
+                    <a href="{{ path('app_projects_project', {'projects': project.slug}) }}">
+                    <h3>{{ project.title }}</h3>
+                    <p>{{ project.description }}</p>
+                </a>
+                </div>
+            {% endfor %}
+            </div>
+
+            
+            
+            
+        </div>
+
+
+
+    </main>
+    </body>
+
+    {% endblock %}

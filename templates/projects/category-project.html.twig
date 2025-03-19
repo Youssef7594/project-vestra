@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ category.name }} - Projets{% endblock %}
+
+{% block body %}
+
+<body class="body-category-of-project">
+    
+
+    <main class="main-category-of-project"> 
+        <h1>Most liked projects of {{ category.name }}</h1>
+
+        <div class="project-list">
+            {% for project in projects %}
+                <div class="project-card">
+                    <h2>{{ project.title }}</h2>
+                    <p>❤️ {{ project.like_count }} likes</p>
+                    <a href="{{ path('app_projects_project', {'projects': project.slug}) }}">See the project</a>
+                </div>
+            {% else %}
+                <p>Aucun projet trouvé pour cette catégorie.</p>
+            {% endfor %}
+        </div>
+    </main>
+</body>
+{% endblock %}

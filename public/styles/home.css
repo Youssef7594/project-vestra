@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@font-face {
+    font-family:monserrat ;
+    src: url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+}
+
+
+#body-home{
+    background-image: url(../image/home-image.webp);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.main-home{
+    margin-top: 40px;
+    padding-top: 100px;
+    
+    .title-home{
+        font-size: 70px;
+        color:   #e5a161;
+        text-align: center;
+        font-family: monserrat;
+        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+    }
+
+    
+        
+        #slogan{
+            
+            color: #e5a161;
+            text-shadow: 5px 3px  4px rgb(6, 6, 6);
+            text-align: center;
+
+            h2{
+                font-size: 30px;
+                
+                margin: 0 auto; 
+                margin-top: 20px;
+                max-width: 500px; 
+
+
+            }
+
+            
+        }
+
+        #beginning{
+
+            margin-top: 20px;
+            display: flex;
+            
+            .get-start{
+                margin-top: 50px;
+                margin-left: 370px;
+
+                a{
+                    font-size: 30px;
+                    text-decoration: none;
+                    background-color: rgba(0, 81, 255, 0.593);
+                    color: aliceblue;
+                    padding: 10px;
+                    border-radius: 90px;
+                }
+            }
+
+            .step{
+                margin-left: 100px;
+                background-color: rgba(13, 13, 13, 0.794);
+
+                h5{
+                    color: white;
+                    text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                    font-size: 40px;
+                }
+
+                p{
+
+                    color: white;
+                    text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                }
+            }
+        }
+
+
+        /* text se trouvant au milieux de la page*/
+
+        #Building-your-success{
+            text-align: center;
+            margin-top: 150px;
+            font-size: 50px;
+            color:   #e5a161;
+            text-shadow: 5px 3px  4px rgb(6, 6, 6);
+
+        }
+
+
+        /* Tout l'espace menu */
+        #space-menu{
+
+            margin-left: 30px;
+            margin-top: 100px;
+
+            h2{
+                margin-left: 30px;
+                color:   #e5a161;
+                text-shadow: 5px 3px  4px rgb(6, 6, 6);
+            }
+
+            #menu{
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: wrap; /* Permet aux éléments de passer à la ligne quand nécessaire */
+                gap: 20px; 
+                
+
+
+                .card{
+                    height: 450px;
+                    text-align: center;
+
+                    h3{
+                        margin-top: 50px;
+                        font-size: 40px;
+                    }
+
+                    p{
+                        margin-top: 60px;
+                        font-size: 20px;
+                    }
+
+                    
+                }
+
+                .card-one{
+                    background-image: url(../image/home-classe.jpg);
+                    background-size: cover;
+
+                    h3{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    p{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    a{
+                        margin-bottom: -110px;
+                        
+                    }
+                }
+
+                .card-two{
+                    background-image: url(../image/home-continue.jpeg);
+                    background-size: cover;
+
+                    h3{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    p{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    a{
+                        margin-bottom: -175px;
+                        
+                    }
+                }
+
+                .card-three{
+                    background-image: url(../image/home-network.jpeg);
+                    background-size: cover;
+
+                    a{
+                        margin-bottom: -112px;
+                        
+                    }
+
+                    h3{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    p{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+                }
+
+                .card-four{
+                    background-image: url(../image/home-event.jpeg);
+                    background-size: cover;
+
+                    a{
+                        margin-bottom: -180px;
+                        
+                    }
+
+                    h3{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+
+                    p{
+                        color: white;
+                        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+                    }
+                }
+
+            }
+        }
+
+
+    /* Partie - En mode mobile/tablette (écran < 1058px) */
+    @media screen and (max-width: 1058px) {
+
+        .get-start{
+            margin-left: -100px;
+        }
+
+        #menu {
+            justify-content: center; /* Centrer les cartes sur la ligne */
+        }
+    
+        .card {
+            width: 45%; /* Chaque carte prend 45% de la largeur pour que 2 tiennent sur une ligne */
+        }
+    
+    }
+
+    
+    
+}
+
+.card:hover{
+    transform: scale(1.05);
+    transition: transform 1s ease;
+}
+
+.mission-vestra{
+    margin-top: 100px;
+    border-top: solid white ;
+    border-bottom: solid white;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.235);
+    
+
+    h2{
+        margin-top: 20px;
+        font-size: 50px;
+        color: white;
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+    p{
+        font-size: 20px;
+        color: white;
+        text-shadow: 5px 3px  4px rgb(6, 6, 6);
+        margin-bottom: 20px;
+    }
+}
+
+
+
+/* Espace CSS de la page classement  */
+.body-classement{
+    background-image: url(../image/fond-classement.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.main-classement{
+    margin-top: 70px;
+    padding-top: 100px;
+    text-align: center;
+
+    h1{
+        color: white;
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+    .classement-classement{
+        margin-top: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+        .list-classement{
+            
+            th{
+                color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                
+            }
+    
+            tr{
+                color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    
+            a{
+                text-decoration: none;
+                color: white;
+                text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                font-size: 30px;
+            }
+            }
+
+        }
+
+    }
+}
+
+
+
+
+
+         /* Partie css de la l'affichage des résultat dans la barre de recherche  */
+
+
+    .search-item {
+        background-color: white; /* Fond blanc */
+        padding: 10px;
+        margin: 5px 0;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour plus de lisibilité */
+
+        a{
+            color: black;
+            text-decoration: none;
+        }
+    }
+    
+    .search-item:hover {
+        background-color: #f0f0f0; /* Fond gris clair au survol */
+    }

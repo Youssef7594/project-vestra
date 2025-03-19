@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Signaler un projet{% endblock %}
+
+{% block body %}
+<body class="body-report">
+    <main class="main-report">
+    
+    <div class="container mt-5">
+        <h2>Signaler le projet : {{ project.title }}</h2>
+
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-danger">Envoyer le signalement</button>
+        {{ form_end(form) }}
+    </div>
+
+</main>
+</body>
+{% endblock %}
+

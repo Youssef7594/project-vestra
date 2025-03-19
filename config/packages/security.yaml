@@ -1,0 +1,55 @@
+security:
+    # Encodage des mots de passe
+    password_hashers:
+        Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface: 'auto'
+
+    # Fournisseurs d'utilisateurs (pour l'authentification)
+    providers:
+        database_users:
+            entity:
+                class: App\Entity\Users
+                property: email
+
+    # Paramètres de sécurité
+    firewalls:
+        # Firewall pour l'environnement de développement
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        # Firewall principal
+        main:
+            lazy: true
+            provider: database_users
+
+            # Authentification par formulaire
+            form_login:
+                login_path: app_login
+                check_path: app_login
+                username_parameter: email # Utiliser 'email' au lieu de 'username'
+                password_parameter: password # Garder 'password' comme il est
+                default_target_path: app_home # Redirection vers la page d'accueil après la connexion réussie
+
+            # Déconnexion
+            logout:
+                path: app_logout
+                target: app_home  # Redirection après déconnexion
+
+            # Garder l'utilisateur connecté
+            remember_me:
+                secret: '%env(APP_SECRET)%'
+                lifetime: 604800 # 7 jours en secondes
+                path: /
+
+    # Hiérarchie des rôles
+    role_hierarchy:
+        
+        RECRUTEUR: [ROLE_USER]
+        TALENT: [ROLE_USER]
+        ROLE_USER: []
+
+    # Contrôle d'accès
+    access_control:
+    #- { path: ^/projects, roles: ROLE_USER }
+    
+

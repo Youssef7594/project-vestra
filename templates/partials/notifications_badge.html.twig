@@ -1,0 +1,7 @@
+<a href="{{ path('app_notifications') }}" class="notifications-link">
+    Notifications
+    {% if unreadCount > 0 %}
+        <span class="notif-badge">{{ unreadCount }}</span>
+    {% endif %}
+</a>
+

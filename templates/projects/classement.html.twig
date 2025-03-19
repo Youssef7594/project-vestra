@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}home{% endblock %}
+
+{% block body %}
+
+<body class="body-classement">
+    
+
+<main class="main-classement">
+    
+
+    <h1>Ranking of the Most Liked Projects</h1>
+
+    <div class="classement-classement"> 
+    <div class="list-classement">
+    <table>
+        <thead>
+            <tr>
+                <th>Classement</th>
+                <th>Project Name</th>
+                <th>Number of Likes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in topProjects %}
+                <tr>
+                    <td>#{{ loop.index }}</td>
+                    <td><a href="{{ path('app_projects_project', {'projects': project.slug}) }}">{{ project.title }}</a></td>
+                    <td>{{ project.like_count }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun projet trouvé</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+
+</main>
+
+</body>
+
+{% endblock %}

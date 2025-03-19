@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MessagesController!{% endblock %}
+
+{% block body %}
+<body class="body-messages">
+    <main class="main-messages">
+
+    <div class="messages-conversation">
+
+    <h2><strong>Conversation</strong></h2>
+
+    <ul>
+    {% for conversation in conversations %}
+        <li>
+            <div id="conv-priv">
+                <a id="name-conv" href="{{ path('app_messages_conversation', {'id': conversation.id}) }}">
+                    <img src="{{ conversation.profilePicture ? asset(conversation.profilePicture) : asset('images/default-profile.jpg') }}" alt="{{ conversation.username }}" class="profile-pic" />
+                    {{ conversation.username }}
+                    {% if conversation.hasUnreadMessages is defined and conversation.hasUnreadMessages %}
+                        <span class="notif-dot"></span>
+                    {% endif %}
+
+                </a>
+            </div>
+        </li>
+    {% else %}
+        <li>Aucune conversation pour le moment.</li>
+    {% endfor %}
+</ul>
+
+    
+    </div>
+
+
+    <section class="more-connection">
+    
+    <h2><strong>Do you want more connection?</strong></h2>
+    
+
+    <a id="click-here-link" href="{{ path('app_network') }}">click here!</a>
+    </section>
+
+    </main>
+</body>
+    
+{% endblock %}

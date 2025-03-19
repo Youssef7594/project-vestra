@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vestra{% endblock %}
+
+{% block body %}
+
+<body class="body-discovert">
+    
+
+    <main class="main-discovert">
+
+    
+        <h2>DISCOVER AND ENJOY !</h2>
+
+        <div class="projects-list">
+            {% for project in projects %}
+                <div class="project-item">
+                    <a href="{{ path('app_projects_project', {'projects': project.slug}) }}">
+                        <h3>{{ project.title }}</h3>
+                        <p>{{ project.description }}</p>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+
+    </main>
+
+</body>
+{% endblock %}

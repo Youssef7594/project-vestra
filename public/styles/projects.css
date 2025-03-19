@@ -1,0 +1,361 @@
+/* Page pricipale de "Projects" */
+
+#body-projects{
+    background-image: url(../image/register.png);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+#main-projects{
+    margin-top: 40px;
+    padding-top: 100px;
+    padding-bottom: 250px;
+
+
+    #title-projects{
+        text-align: center;
+        color: aliceblue;
+        font-family: monserrat;
+        font-size: 70px;
+    }
+
+    .action-projects{
+        margin-top: 40px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+
+        a{
+            text-decoration: none;
+            margin: 0 auto; 
+            margin-top: 15px;   
+            max-width: 500px; 
+            padding: 15px;
+            background-color: rgb(7, 183, 1);
+            color: rgb(247, 244, 244);
+            border-radius: 20px;
+            font-size: 35px;
+        }
+
+        a:hover{
+            transform: scale(1.05);
+            transition: transform 1s ease;
+        }
+
+        
+    }
+
+
+    /* #all-projects{
+        margin-top: 120px;
+        margin-left: 120px;
+
+        h2{
+            font-size: 50px;
+            color: aliceblue;
+        }
+
+        p{
+            font-size: 20px;
+            color: aliceblue;
+        }
+    }
+
+    #all-success{
+        margin-top: 70px;
+        margin-left: 120px;
+
+        h2{
+            font-size: 50px;
+            color: aliceblue;
+        }
+
+        p{
+            font-size: 20px;
+            color: aliceblue;
+        }
+    } */
+
+
+}
+
+
+
+
+
+
+
+/* Page-project (Affichage de projets) */
+
+    .body-project-page{
+        background: linear-gradient(135deg, #6262e2, #52aaca73 );
+
+    }
+
+    .main-project-page{
+        margin-top: 150px;
+        padding-top: 100px;
+        text-align: center;
+        margin-bottom: 100px;
+
+
+        .top-page-project{
+            margin-bottom: 100px;
+
+            h1{
+                font-family: monserrat;
+                font-size: 40px;
+                margin-bottom: 50px;
+            }
+
+
+        }
+
+
+        /* nom d'utilisateur */
+        .nom-proprietaire{
+
+            a{
+                text-decoration: none;
+                padding: 5px;
+                text-decoration: none;
+                background-color: white;
+                border: solid;
+            }
+        }
+
+
+        /* le boutton signalement */
+        .report-button{
+            
+
+            a{
+                background-color: rgb(255, 255, 255);
+                border: solid;
+                
+            }
+
+        }
+
+
+
+
+        /* Supression du project */
+        .delete-project-project{
+            display: flex;
+            justify-content: flex-end;
+        
+            margin-bottom: -100px;
+        }
+
+
+    /* Pour le carouselle */
+    .carousel-inner{
+        margin-top: 120px;
+
+        .carousel-item img,
+        .carousel-item video {
+        object-fit: contain;  /* L'image ou la vidéo s'adapte sans être coupée, et se rétrécit si nécessaire */
+        width: 100%;           /* Prend toute la largeur du carrousel */
+        height: 100%;  /* Prend toute la hauteur du carrousel */
+
+        
+    }
+
+    }
+
+    /* Espace like */
+    .votes-project{
+        margin-top: 55px;
+        margin-left: -500px;
+    }
+
+
+
+    /* Partie partage  */
+    .share-buttons{
+        margin-top: -90px;
+        margin-left: 500px  ;
+    }
+
+
+    .carousel-indicators button {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        background-color: gray;
+        margin: 5px;
+        border: none;
+        transition: background-color 0.3s;
+    }
+    
+    .carousel-indicators .active {
+        background-color: white;
+    }
+
+
+    
+    /* Espace commentaire  */
+    .comments-project{
+        margin-top: 150px;
+        
+
+        #add-comment{
+            margin-top: 50px;
+        }
+
+        #form-add-comment{
+            display: flex;
+            justify-content: center;
+            
+
+            textarea{
+                margin-right: 30px;
+                width: 400px;
+
+            }
+
+                #submit-comment{
+                    border-radius: 90px;
+                    padding: 10px;
+
+                } 
+        }
+
+    }
+
+
+
+    /* Personalisation des commentaire */
+    .comments-section{
+        margin-top: 100px;
+
+        .comment{
+            margin-left: 500px;
+            margin-bottom: 40px;
+            background-color: rgb(255, 255, 255);
+            border: solid;
+            max-width: 700px;
+
+
+
+            .user-name-comment{
+                margin-left: -500px;
+            }
+        }
+    }
+
+    /* Styles pour les petits écrans */
+    @media screen and (max-width: 1058px){
+        .comments-section{
+            
+    
+            .comment{
+                margin-left: 200px;
+                margin-bottom: 40px;
+                
+    
+    
+    
+                .user-name-comment{
+                    margin-left: -500px;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+    /* Page création de projects */
+
+
+    #body-project-create{
+        background-image: url(../image/register.png);
+        background-size: cover;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+
+    }
+    
+    #main-project-create{
+        margin-top: 100px;
+        padding-top: 100px;
+        display: flex;
+        justify-content: center;
+
+
+    #new-project-form{
+        border: solid;
+        padding: 20px;
+        background: radial-gradient(circle, rgba(63, 94, 251, 0.325) 34%, rgba(252, 70, 216, 0.363) 100%);
+        display: flex;
+        flex-direction: column;
+        max-width: 450px;
+        }
+    
+        label{
+            margin-top: 10px;
+            margin-bottom: 15px;
+            color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+        }
+
+        #category{
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+    
+        
+    
+    }
+    
+
+
+    /* Affichage des project dans la barre de recherche dans catégorie */
+
+    .body-category-of-project{
+        background-image: url(../image/register.png);
+        background-size: cover;
+        background-attachment: scroll;
+        background-repeat: no-repeat;
+    }
+
+    .main-category-of-project{
+        margin-top: 100px;
+        padding-top: 100px;
+        padding-bottom: 260px;
+        text-align: center;
+
+        .project-list{
+            margin-top: 20px;
+
+
+            .project-card{
+                margin-top: 90px;
+
+                p{
+                    margin-bottom: 40px;
+                }
+                
+
+                a{
+                    background-color: #c9184a;
+                    border: solid #c9184a;
+                    border-radius: 90px;
+                    
+                    padding: 12px;
+                    color: white;
+                    text-shadow: 5px 3px  4px rgba(9, 9, 9, 0.283);
+                    text-decoration: none;
+                }
+
+
+            }
+        }
+    }
+
+

@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Vestra{% endblock %}
+
+{% block body %}
+
+<body id="body-project-create">
+    
+
+    <main id="main-project-create">
+
+    <form id="new-project-form" method="post" action="{{ path('app_projects_create') }}" enctype="multipart/form-data">
+    {{ form_start(form, {'attr': {'novalidate': 'novalidate'}}) }}
+
+    <label for="title">Title</label>
+    {{ form_widget(form.title) }}
+
+    <label for="description">Description</label>
+    {{ form_widget(form.description) }}
+
+    <label>Images</label>
+        <div id="image-container">
+            <input type="file" name="images[]" accept="image/*" multiple>
+        </div>
+
+    <button type="button" id="add-image">Ajouter une image</button>
+
+    <!-- Champ pour les vidéos -->
+    <label>Videos</label>
+        <div id="video-container">
+            <input type="file" name="videos[]" accept="video/*" multiple>
+        </div>
+
+    
+    <button type="button" id="add-video">Ajouter une vidéo</button>
+
+
+    <label for="category">Category</label>
+    {{ form_widget(form.category_id) }}
+
+    <button type="submit">Create Project</button>
+
+    {{ form_end(form) }}
+</form>
+
+
+
+
+
+    </main>
+
+</body>
+{% endblock %}

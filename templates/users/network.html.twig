@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UsersController!{% endblock %}
+
+{% block body %}
+<body id="body-network">
+    <main id="main-network">
+    <div class="title-network">
+    <h1>Make a network</h1>
+    </div>
+    
+
+    <div class="network-container">
+    <div class="left-column">
+        <h2>Recruiters</h2>
+        {% for recruteur in recruteurs %}
+            <div class="recruteur">
+                <img src="{{ recruteur.profile_picture }}" alt="{{ recruteur.username }}" />
+                
+                <p>
+                <a href="{{ path('app_profile', {'id': recruteur.id}) }}">
+                        {{ recruteur.username }}
+                    </a>
+                </p>
+
+            </div>
+        {% endfor %}
+    </div>
+    <div class="right-column">
+        <h2>Talents</h2>
+        {% for talent in talents %}
+            <div class="talent">
+                <img src="{{ talent.profile_picture }}" alt="{{ talent.username }}" />
+                
+                <p>
+                    <a href="{{ path('app_profile', {'id': talent.id}) }}">
+                        {{ talent.username }}
+                    </a>
+                </p>
+                
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+    
+    </main>
+</body>
+{% endblock %}

@@ -1,0 +1,114 @@
+#body-network{
+    background-image: url(../image/fond-network.jpeg);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+
+}
+
+#main-network{
+    margin-top: 40px;
+    padding-top: 100px;
+}
+
+.title-network{
+    text-align: center;
+    color: white;
+    text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    h1{
+        font-size: 60px;
+    }
+}
+
+.network-container{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+
+    .left-column{
+        
+        height: 1000px;
+        
+
+        h2{
+            margin-right: 200px;
+            color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+            font-size: 35px;
+        }
+
+        .recruteur{
+            border: solid ;
+            margin-top: 40px;
+            margin-left: -40px;
+            margin-right:100px;
+            display: flex;
+            background-color: rgba(240, 248, 255, 0.304);
+
+
+            p{
+                color: white;
+                text-shadow: 5px 3px  4px rgb(9, 9, 9);
+            }
+
+        }
+
+
+    }
+
+    .right-column{
+        
+        height: 1000px;
+        
+        
+
+        h2{
+            margin-left: 200px;
+            color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+            font-size: 35px;
+        }
+
+        .talent{
+            border: solid ;
+            margin-top: 40px;
+            margin-left: 140px;
+            width: 300px;
+            display: flex;
+            background-color: rgba(240, 248, 255, 0.304);
+
+            p{
+                color: white;
+                text-shadow: 5px 3px  4px rgb(9, 9, 9);
+            }
+
+        }
+
+        
+
+    }
+
+    a{
+        text-decoration: none;
+        color: white;
+            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+    img{
+        margin-right: 20px;
+        height: 50px;
+        width: 50px;
+    }
+
+    
+}
+
+.talent:hover{
+    transform: scale(1.05);
+    transition: transform 1s ease;
+}
+
+.recruteur:hover{
+    transform: scale(1.05);
+    transition: transform 1s ease;
+}

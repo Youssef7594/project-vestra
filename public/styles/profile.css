@@ -1,0 +1,308 @@
+.body-profile{
+    background-color: rgb(226, 223, 223);
+}
+
+.main-profile{
+    
+    
+    .profile-header{
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        height: 400px;
+
+        img{
+            height: 160px;
+            margin-top: 300px;
+            margin-left: 300px;
+            border-radius: 90px;
+            max-width: 170px;
+        }
+
+        h1{
+            margin-left: 470px;
+            margin-top: -60px;
+        }
+
+        p{
+            margin-left: 650px;
+            margin-top: -40px;
+        }
+
+        #logout-button{
+            text-align: center;
+
+            
+        }
+
+        .interactive{
+            text-align: center;
+            margin-top: 100px;
+            display: flex;
+            justify-content: space-around;
+
+            #contact-btn{
+                border-radius: 90px;
+                padding: 10px;
+            }
+
+            
+        }
+
+        #contact-btn:hover{
+            background-color: rgba(83, 85, 83, 0.203);
+        }
+
+        #follow-btn:hover{
+            background-color: rgba(255, 0, 0, 0.519);
+        }
+    }
+
+
+
+    .profile-content{
+        text-align: center;
+        
+        #news-profile{
+            margin-top: 200px;
+            font-size: 50px;
+        }
+
+        .project-profile{
+            margin-top: 100px;
+            /* margin-left: -180px; */
+            
+
+            .project-in-profile{
+                    /* 
+                    max-width: 700px; */
+                    margin-top: 100px;
+                    margin-left: 400px;
+                    margin-right: 400px;
+                border: solid;
+                background-color: white;
+                box-shadow: -1em 0 .4em rgb(51, 52, 52);
+                padding: 10px;
+
+                a{
+                    text-decoration: none;
+                    color: rgb(0, 0, 0);
+                    text-shadow: 5px 3px  4px rgb(241, 237, 237);
+                }
+            }
+        }
+
+        .project-in-profile:hover{
+            transform: scale(1.05);
+            transition: transform 1s ease;
+        }
+
+        /* Boutton contacter */
+        .contact-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .contact-btn:hover {
+            background-color: #0056b3;
+        }
+        
+    }
+
+
+
+    /* Toute la partie css de la modification de profile */
+    .edit-profile{
+        
+        margin-top: 100px;
+        display: flex;
+        flex-direction: column;
+        
+
+        .profile-picture-input {
+            
+            position: absolute;
+            top: 470px;
+            left: 310px;
+            
+        }
+
+        .profile-picture-label{
+            position: absolute;
+            top: 470px;
+            left: 200px;
+
+        }
+
+        .background-image-input{
+            position: absolute;
+            top: 360px;
+            right: 10px;
+        }
+
+        .background-image-label{
+            position: absolute;
+            top: 360px;
+            right: 350px;
+        }
+
+        .who-am-i {
+
+            /* position: absolute;
+            top:700px ;*/
+            width: 600px; 
+            
+        }
+
+        .who-i-am-label{
+            margin-left: 300px;
+            /* position: absolute;
+            top:650px ; */
+            margin-bottom: 100px;
+            margin-right: 10px;
+            
+        }
+
+        .goals-profile{
+            /* position: absolute;
+            top:930px ; */
+            width: 600px;
+
+        }
+
+        .goals-label{
+            /* position: absolute;
+            top:880px ; */
+            margin-bottom: 100px;
+            margin-left: -50px;
+            margin-right: 10px;
+        }
+
+        .experience-profile{
+            /* position: absolute;
+            top:1170px ; */
+            width: 600px;
+        }
+
+        .experience-label{
+            /* position: absolute;
+            top:1110px ; */
+            margin-bottom: 100px;
+            margin-left: 300px;
+            margin-right: 10px;
+        }
+
+        .qualities-profile{
+            /* position: absolute;
+            top:1390px ; */
+            width: 600px;
+            
+        }
+
+        .qualities-label{
+            /* position: absolute;
+            top:1340px ; */
+            margin-bottom: 100px;
+            margin-left: -50px;
+            margin-right: 10px;
+        }
+
+        
+    }
+
+
+      /* Styles pour les petits écrans */
+        @media screen and (max-width: 1058px) {
+
+            #logout-button{
+                text-align: center;
+                margin-left: 100px;
+                margin-top: -5px;
+                
+            }
+
+            .project-profile{
+                
+                
+    
+                .project-in-profile{
+                    
+                        margin-left: 100px!important;
+                        margin-right: 100px!important;
+                        
+    
+                    
+                }
+            }
+    }
+
+
+    /* Styles pour les petits écrans */
+    @media screen and (max-width: 995px) {
+
+        #logout-button{
+            margin-top: -5px;
+            margin-left: 100px;
+        }
+
+        .who-i-am-label{
+            position: absolute;
+            top:700px ; 
+            margin-left: 200px !important;
+            
+        }
+
+        .who-am-i {
+
+            width: 500px !important; 
+            margin-bottom: 100px;
+        }
+
+        .goals-profile{
+        
+            width: 500px !important;
+            margin-bottom: 100px;
+    
+        }
+    
+        .goals-label{
+            position: absolute;
+                top:960px ; 
+                margin-left: 220px !important;
+        
+        }
+    
+        .experience-profile{
+            width: 500px !important;
+            margin-bottom: 100px;
+        }
+    
+        .experience-label{
+            position: absolute;
+                top:1190px ; 
+                margin-left: 200px !important;
+        }
+    
+        .qualities-profile{
+            width: 500px !important;
+            margin-bottom: 100px;
+        }
+    
+        .qualities-label{
+            position: absolute;
+                top:1420px ; 
+                margin-left: 220px !important;
+            
+        }
+    }
+
+    
+}
+
+
+

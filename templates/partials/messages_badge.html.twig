@@ -1,0 +1,6 @@
+<a href="{{ path('app_messages') }}" class="header-messages">
+    Messages
+    {% if hasUnreadMessages %}
+        <span class="notif-dot"></span> {# Afficher le point rouge si messages non lus #}
+    {% endif %}
+</a>

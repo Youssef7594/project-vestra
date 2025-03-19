@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+<body class="body-register">
+    
+<main class="main-register">
+<div class="container mt-5">
+    <div class="container mt-5">
+    <h1 class="text-center mb-4">Créer un compte</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" action="{{ path('app_register') }}" data-turbo="false">
+
+    {{ form_row(registrationForm._token) }}
+
+    <!-- Nom d'utilisateur -->
+    <div class="mb-3">
+        <label for="username" class="form-label">User name</label>
+        <input type="text" id="username" name="registration_form[username]" class="form-control" value="{{ registrationForm.username.vars.value ?? '' }}" required>
+        {% if registrationForm.username.vars.errors|length > 0 %}
+            <div class="text-danger mt-1">
+                {{ registrationForm.username.vars.errors|first.message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" name="registration_form[email]" class="form-control" value="{{ registrationForm.email.vars.value ?? '' }}" required>
+        {% if registrationForm.email.vars.errors|length > 0 %}
+            <div class="text-danger mt-1">
+                {{ registrationForm.email.vars.errors|first.message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Mot de passe -->
+    <div class="mb-3">
+        <label for="plainPassword" class="form-label">Password</label>
+        <input type="password" id="plainPassword" name="registration_form[plainPassword][first]" class="form-control" required>
+        {% if registrationForm.plainPassword.first.vars.errors|length > 0 %}
+            <div class="text-danger mt-1">
+                {{ registrationForm.plainPassword.first.vars.errors|first.message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Confirmer le mot de passe -->
+    <div class="mb-3">
+        <label for="plainPasswordConfirmation" class="form-label">Confirm the password</label>
+        <input type="password" id="plainPasswordConfirmation" name="registration_form[plainPassword][second]" class="form-control" required>
+        {% if registrationForm.plainPassword.second.vars.errors|length > 0 %}
+            <div class="text-danger mt-1">
+                {{ registrationForm.plainPassword.second.vars.errors|first.message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Sélection du rôle -->
+    <div class="mb-3">
+        <label class="form-label">Choose your role</label><br>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="talent" name="registration_form[role]" value="TALENT" required>
+            <label class="form-check-label" for="talent">Talent</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" id="recruteur" name="registration_form[role]" value="RECRUTEUR" required>
+            <label class="form-check-label" for="recruteur">Recruteur</label>
+        </div>
+        {% if registrationForm.role.vars.errors|length > 0 %}
+            <div class="text-danger mt-1">
+                {{ registrationForm.role.vars.errors|first.message }}
+            </div>
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-light w-100">Register</button>
+</form>
+
+        </div>
+    </div>
+</div>
+
+</main>
+</body>
+{% endblock %}

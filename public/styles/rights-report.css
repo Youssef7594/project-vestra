@@ -1,0 +1,51 @@
+/* Css de toute les partie de droits */
+
+.body-rights{
+    background-image: url(../image/newprojects-fond.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+    .main-rights{
+        margin-top: 100px;
+        padding-top: 100px;
+
+        text-align: center;
+
+        color: white;
+
+
+        .rights-part{
+            padding-top: 100px;
+        }
+    }
+
+
+}
+
+
+    /* Css de la partie signalement */
+
+    .body-report{
+        background-image: url(../image/fond-profile.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    
+    
+        .main-report{
+            margin-top: 100px;
+            padding-top: 100px;
+            
+    
+            text-align: center;
+
+            button{
+                margin-top: 20px;
+                margin-bottom: 200px;
+            }
+    
+            
+        }
+    
+    
+    }

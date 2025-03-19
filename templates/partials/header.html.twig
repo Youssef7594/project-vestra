@@ -1,0 +1,59 @@
+<header>
+
+<nav>
+    <h1><a href="{{ path('app_home') }}">Vestra</a></h1>
+
+    
+<div class="search-bar">
+    <input id="user-search" class="form-control me-2" style="width: 250px;" type="search" placeholder="Search" aria-label="Search">
+    <div id="searchResults"></div>
+</div>
+
+
+
+    
+    <!-- Bouton Hamburger (apparaît seulement en mode mobile/tablette) -->
+    <div class="hamburger" onclick="toggleMenu()">&#9776;</div>
+
+
+    <div class="ul-un">
+        <ul>
+            <li><a href="{{ path('app_home') }}">Home</a></li>
+            <li><a href="{{ path('app_projects') }}">Projects</a></li>
+            <li><a href="{{ path('app_help-page') }}">Help</a></li>
+            <li>{{ render(controller('App\\Controller\\NotificationsController::headerNotifications')) }}</li>
+            <li>{{ render(controller('App\\Controller\\MessagesController::headerMessages')) }}</li>
+            <li><a href="{{ path('list') }}">Subscription</a></li>
+        </ul>
+
+    </div>
+
+    <div class="ul-deux">
+        <ul>
+    
+            {% if app.user %}
+        <!-- Utilisateur connecté, afficher la photo de profil avec un lien vers le profil -->
+        <li id="profile-picture-link">
+            <a href="{{ path('app_profile', {'id': app.user.id}) }}">
+                <img src="{{ asset(app.user.profilePicture ?? 'image/singapore.jpg ') }}" alt="Profile Picture" class="profile-img">
+            </a>
+        </li>
+
+
+        
+
+
+    {% else %}
+        <div id="path-log-to-log">
+        <!-- Utilisateur non connecté, afficher les boutons Login et Sign Up -->
+        <li id="path-login-signup"><a href="{{ path('app_login') }}">Login</a></li>
+        <li id="path-login-signup"><a href="{{ path('app_register') }}">Sign Up</a></li>
+        </div>
+    {% endif %}
+
+        </ul>
+
+    </div>
+</nav>
+
+</header>

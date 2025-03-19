@@ -1,0 +1,118 @@
+/* Partie css de la page register */
+
+.body-register{
+    background-image: url(../image/register.png);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.main-register{
+    margin-top: 40px;
+    padding-top: 100px;
+
+    h1{
+        color: #e4b9e7;
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+
+}
+
+
+
+
+
+/* Partie css de la page login */
+
+.body-login{
+    background-image: url(../image/register.png);
+    background-size: cover;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+}
+
+.main-login{
+    margin-top: 120px;
+    padding-top: 100px;
+    padding-bottom: 140px;
+    text-align: center;
+
+    h1{
+        color: #e4b9e7;
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+    }
+
+    form{
+        padding-bottom: 10px;
+        
+        .email-login{
+            display: flex;
+            flex-direction: column;
+            
+
+            input{
+                width: 420px;
+                margin-left: 650px;
+            }
+            
+        }
+
+        
+        .password-login{
+            display: flex;
+            flex-direction: column;
+
+            input{
+                width: 420px;
+                margin-left: 650px;
+            }
+        }
+
+        button{
+            margin-top: 15px;
+        
+        }
+    }
+
+    a{
+        color: #ffffff;
+        
+    }
+
+    /* Partie - En mode mobile/tablette (écran < 1058px) */
+    @media screen and (max-width: 1058px) {
+        form{
+            
+            
+            .email-login{
+                
+                
+    
+                input{
+                    width: 350px;
+                    margin-left: 330px;
+                }
+                
+            }
+    
+            
+            .password-login{
+                
+    
+                input{
+                    width: 350px;
+                    margin-left: 330px;
+                }
+            }
+    }
+
+    
+}
+}
+
+.create-account:hover{
+    transform: scale(1.05);
+    transition: transform 0.5s ease;
+
+}

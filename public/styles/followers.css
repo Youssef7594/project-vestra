@@ -1,0 +1,98 @@
+
+.body-followers{
+    background: linear-gradient(135deg, #6262e2, #52aaca73 );
+
+}
+
+.main-followers{
+
+    margin-top: 70px;
+    padding-top: 100px;
+    padding-bottom: 300px;
+
+    h2{
+        color: white; 
+        text-shadow: 5px 3px  4px rgb(9, 9, 9);
+        margin-bottom: 50px;
+    }
+
+    .followers-subscription{
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-around;
+
+        .subscription-display{
+            padding-bottom: 40px;
+    
+            ul{
+    
+                li{
+                    list-style: none;
+    
+                    .followers-by-one{
+                        background: linear-gradient(to bottom right, rgba(236, 98, 246, 0.633), pink);
+                        border: solid;
+                        margin-top: 20px;
+                        
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+    
+                        a{
+                            text-decoration: none;
+                            color: white; 
+                            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                            padding-left: 20px;
+                        }
+                    }
+    
+                    .followers-by-one:hover{
+                        transform: scale(1.05);
+                        transition: transform 1s ease;
+                    }
+                }
+            }
+        }
+
+
+        .followers-user{
+            h2{
+                color: white; 
+                text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                margin-bottom: 50px;
+            }
+
+            .followers-display{
+
+
+                .followers-by-one{
+                    background: linear-gradient(to bottom right, rgba(236, 98, 246, 0.633), pink);
+                        border: solid;
+                        margin-top: 20px;
+                        
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+    
+                        a{
+                            text-decoration: none;
+                            color: white; 
+                            text-shadow: 5px 3px  4px rgb(9, 9, 9);
+                            padding-left: 20px;
+                        }
+                }
+
+                .followers-by-one:hover{
+                    transform: scale(1.05);
+                    transition: transform 1s ease;
+                }
+
+                li{
+                    list-style: none;
+                }
+            }
+        }
+
+
+    }
+
+    
+}

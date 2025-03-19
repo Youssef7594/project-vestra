@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}followers{% endblock %}
+
+{% block body %}
+<body class="body-followers">
+    <main class="main-followers">
+    
+    <section class="followers-subscription">
+
+    {# Partie qui affiche a qui l'utilisateur est abonnée #}
+    <div class="subscriptions-user">
+        <h2>Subscriptions</h2>
+
+        <div class="subscription-display">
+            <ul>
+                {% for followedUser in following %}
+                    <li>
+                        <div class="followers-by-one">
+                        <a href="{{ path('app_profile', {'id': followedUser.id}) }}">
+                        {{ followedUser.username }}
+                        </a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        </div>
+
+
+    {# Partie qui affiche ceux qui sont abonnée a l'utilisateur#}
+    <div class="followers-user">
+    <h2>Your Followers</h2>
+    <div class="followers-display">
+        <ul>
+            {% for follower in followers %}
+                <li>
+                    <div class="followers-by-one">
+                    <a href="{{ path('app_profile', {'id': follower.id}) }}">
+                    {{ follower.username }}
+                    </a>
+                    </div>
+                </li>
+            {% else %}
+                <p>No one is following you yet.</p>
+            {% endfor %}
+        </ul>
+    </div>
+    </div>
+</section>
+
+
+
+</main>
+</body>
+{% endblock %}
