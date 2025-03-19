@@ -75,9 +75,12 @@ class ProjectsController extends AbstractController
 
         // 🔹 Récupérer et vérifier les vidéos
         $videos = $project->getVideos();
+
+        // Récupérer les commentaires pour ce projet
+        $comments = $commentsRepo->findBy(['project_id' => $project->getId()], ['created_at' => 'DESC']);
     
         // Récupérer les commentaires depuis DynamoDB
-        $comments = $dynamoDBService->getCommentsByProject($project->getId());
+        /* $comments = $dynamoDBService->getCommentsByProject($project->getId()); */
 
         
           // Récupérer l'utilisateur qui a posté le projet en utilisant son `userId`

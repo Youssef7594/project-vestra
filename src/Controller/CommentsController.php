@@ -71,7 +71,7 @@ class CommentsController extends AbstractController
 
          // Appel à DynamoDB pour ajouter un commentaire
     // Conversion des variables nécessaires en string
-    $this->dynamoDBService->addComment((string)$projectId, (string)$user->getId(), $content);
+    /* $this->dynamoDBService->addComment((string)$projectId, (string)$user->getId(), $content); */
 
 
         // Si le propriétaire du projet est différent de l'utilisateur qui a commenté
@@ -96,7 +96,7 @@ class CommentsController extends AbstractController
 
     /* Route pour supprimer un commentaire */
     #[Route('/comment/delete/{commentId}', name: 'app_delete_comment', methods: ['POST'])]
-public function deleteComment(string $commentId, EntityManagerInterface $em, CommentsRepository $commentsRepo, DynamoDBService $dynamoDBService, Security $security, ProjectsRepository $projectRepo): Response
+    public function deleteComment(int $commentId, EntityManagerInterface $em, CommentsRepository $commentsRepo, Security $security): Response
 {
     // Récupérer l'utilisateur connecté
     $user = $security->getUser();
@@ -104,30 +104,33 @@ public function deleteComment(string $commentId, EntityManagerInterface $em, Com
         return new Response('Unauthenticated user', Response::HTTP_FORBIDDEN);
     }
 
-    // Récupérer le commentaire depuis DynamoDB
-    $comment = $dynamoDBService->getCommentById($commentId);
+    // Récupérer le commentaire à partir de son ID
+    $comment = $commentsRepo->find($commentId);
     
     // Vérifier si le commentaire existe
     if (!$comment) {
         return new Response('Comment not found', Response::HTTP_NOT_FOUND);
     }
     
-    if ((string) $comment['user_id']['S'] !== (string) $user->getId()) {
+    if ($comment->getUser() !== $user) {
         return new Response('You cannot delete this comment', Response::HTTP_FORBIDDEN);
     }
 
+    $em->remove($comment);
+    $em->flush();
+
       // Extraire le project_id du commentaire (qui est l'ID du projet)
-    $projectId = $comment['project_id']['S']; 
+    /* $projectId = $comment['project_id']['S'];  */
 
     // 🔹 Récupérer le projet en fonction de son ID
-    $project = $projectRepo->find($projectId);
-
+    /* $project = $projectRepo->find($projectId);
+ */
     // Supprimer le commentaire dans DynamoDB
-    $dynamoDBService->deleteComment($commentId);
+    /* $dynamoDBService->deleteComment($commentId); */
     
 
     // Rediriger vers la page du projet après la suppression du commentaire
-    return $this->redirectToRoute('app_projects_project', ['projects' => $project->getSlug()]);  
+    return $this->redirectToRoute('app_projects_project', ['projects' => $comment->getProjectId()]);  
 }
 
 
