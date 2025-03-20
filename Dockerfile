@@ -20,8 +20,11 @@ RUN useradd -m www-data || true
 # Copie des fichiers du projet
 COPY . /var/www/html/
 
-# Donne les permissions correctes pour les logs et le cache Symfony
-RUN mkdir -p /var/www/html/var && chown -R www-data:www-data /var/www/html/var
+# Vérifie que les dossiers de cache et logs existent
+RUN mkdir -p var/cache var/log && chown -R www-data:www-data var
+
+# Installation des dépendances Symfony
+RUN composer install --no-interaction --no-progress --optimize-autoloader
 
 # Exposition du port Apache
 EXPOSE 80
