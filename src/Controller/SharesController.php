@@ -32,7 +32,7 @@ public function shareProject(string $slug, EntityManagerInterface $entityManager
         return new JsonResponse(['success' => false, 'message' => 'Projet non trouvé.'], 404);
     }
 
-    // 🔹 On enlève la vérification pour permettre les partages multiples
+    //  On enlève la vérification pour permettre les partages multiples
     $share = new Shares();
     $share->setUser($user);
     $share->setProject($project);

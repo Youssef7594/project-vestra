@@ -12,6 +12,8 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+// Formlaire de création de projet
+
 class ProjectType extends AbstractType
 {
     private $categoryRepo;

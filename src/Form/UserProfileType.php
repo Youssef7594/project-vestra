@@ -11,6 +11,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 
+// Formulaire de modification du profile 
+
 class UserProfileType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

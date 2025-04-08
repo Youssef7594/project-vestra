@@ -65,7 +65,7 @@ public function pageUsers(Request $request, ProjectsRepository $projectsRepo, Sl
   $form->handleRequest($request);
 
   if ($form->isSubmitted() && $form->isValid()) {
-     // 🔹 Gestion de la photo de profil
+     //  Gestion de la photo de profil
         $profilePictureFile = $form->get('profile_picture')->getData();
         if ($profilePictureFile) {
             try {

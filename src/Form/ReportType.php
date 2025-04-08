@@ -10,6 +10,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\Report;
 
+// Formulaire report
+
 class ReportType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void

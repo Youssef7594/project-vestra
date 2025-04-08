@@ -122,7 +122,7 @@ class CommentsController extends AbstractController
       // Extraire le project_id du commentaire (qui est l'ID du projet)
     /* $projectId = $comment['project_id']['S'];  */
 
-    // 🔹 Récupérer le projet en fonction de son ID
+    //  Récupérer le projet en fonction de son ID
     /* $project = $projectRepo->find($projectId);
  */
     // Supprimer le commentaire dans DynamoDB

@@ -48,10 +48,10 @@ class VotesController extends AbstractController
             $em->persist($vote);
             $em->flush();
 
-            // ✅ Récupérer le propriétaire du projet via son ID
+            //  Récupérer le propriétaire du projet via son ID
                 $owner = $userRepo->find($project->getUserId());
 
-             // ✅ Créer une notification pour le propriétaire du projet
+             //  Créer une notification pour le propriétaire du projet
              $notification = new Notifications();
              $notification->setUser($owner); // Ne pas oublier d'assigner l'utilisateur
              $notification->setType('like');

@@ -63,17 +63,17 @@ class ProjectsController extends AbstractController
         $project = $repo->findProjectBySlug($projects);
         
 
-        // 🔹 Vérifier si le projet existe bien
+        //  Vérifier si le projet existe bien
         if (!$project) {
             throw $this->createNotFoundException('Project not found');
         }
     
 
-        // 🔹 Récupérer et vérifier les images
+        //  Récupérer et vérifier les images
         $images = $project->getImages();
     
 
-        // 🔹 Récupérer et vérifier les vidéos
+        //  Récupérer et vérifier les vidéos
         $videos = $project->getVideos();
 
         // Récupérer les commentaires pour ce projet
@@ -134,7 +134,7 @@ class ProjectsController extends AbstractController
             /* $categoryId = (int) $request->request->get('categories');
             $project->setCategoryId($categoryId); */
 
-            // ✅ Générer un slug unique
+            //  Générer un slug unique
             $baseSlug = $slugger->slug($project->getTitle())->lower();
             $slug = $baseSlug;
             $counter = 1;
@@ -146,10 +146,10 @@ class ProjectsController extends AbstractController
 
             $project->setSlug($slug);
 
-            // ✅ Assigner la date de création
+            //  Assigner la date de création
             $project->setCreatedAt(new \DateTimeImmutable());
 
-            // ✅ Assigner la date de mise à jour
+            //  Assigner la date de mise à jour
             $project->setUpdatedAt(new \DateTime());
 
             // Gérer les fichiers (images, vidéos)
@@ -256,7 +256,7 @@ class ProjectsController extends AbstractController
     
 
 
-     // ✅ Notifier les utilisateurs dont le projet est dans le top
+     //  Notifier les utilisateurs dont le projet est dans le top
      foreach ($topProjects as $project) {
         $ownerId = $project['user_id']; // Récupère l'ID de l'utilisateur (si 'user_id' existe)
         $owner = $userRepo->find($ownerId);
@@ -297,21 +297,21 @@ class ProjectsController extends AbstractController
     #[IsGranted('ROLE_USER')]
     public function deleteProject(int $id, ProjectsRepository $repo, EntityManagerInterface $manager, Security $security): Response
     {
-    // 🔹 Trouver le projet par son ID
+    //  Trouver le projet par son ID
     $project = $repo->find($id);
 
-    // 🔹 Vérifier si le projet existe
+    //  Vérifier si le projet existe
     if (!$project) {
         throw $this->createNotFoundException('Projet introuvable.');
     }
 
-    // 🔹 Vérifier si l'utilisateur connecté est bien l'auteur du projet
+    //  Vérifier si l'utilisateur connecté est bien l'auteur du projet
             if ($security->getUser()->getId() !== $project->getUserId()) {
                 $this->addFlash('error', 'You can only delete your own projects.');
                 return $this->redirectToRoute('app_projects');
             }
 
-            // 🔹 Supprimer les fichiers liés (images et vidéos)
+            //  Supprimer les fichiers liés (images et vidéos)
             $uploadsDir = $this->getParameter('uploads_directory');
 
             // Vérifier si 'images' n'est pas null et est un tableau
@@ -343,14 +343,14 @@ class ProjectsController extends AbstractController
             }
 
 
-            // 🔹 Supprimer le projet de la base de données
+            //  Supprimer le projet de la base de données
             $manager->remove($project);
             $manager->flush();
 
-            // 🔹 Message de confirmation
+            //  Message de confirmation
             $this->addFlash('success', 'Project successfully deleted.');
 
-            // 🔹 Rediriger vers la liste des projets
+            //  Rediriger vers la liste des projets
             return $this->redirectToRoute('app_projects');
         }
 
@@ -373,7 +373,7 @@ class ProjectsController extends AbstractController
                 return $this->json([]);
             }
 
-            // 🔹 Récupérer les catégories qui commencent par la lettre
+            //  Récupérer les catégories qui commencent par la lettre
             $categories = $categoriesRepo->createQueryBuilder('c')
                 ->where('c.name LIKE :query')
                 ->setParameter('query', $query . '%')
@@ -381,7 +381,7 @@ class ProjectsController extends AbstractController
                 ->getQuery()
                 ->getResult();
 
-            // 🔹 Récupérer les projets qui commencent par la lettre
+            //  Récupérer les projets qui commencent par la lettre
             $projects = $projectsRepo->createQueryBuilder('p')
                 ->where('p.title LIKE :query')
                 ->setParameter('query', $query . '%')
@@ -389,7 +389,7 @@ class ProjectsController extends AbstractController
                 ->getQuery()
                 ->getResult();
 
-            // 🔹 Récupérer les utilisateurs qui commencent par la lettre
+            //  Récupérer les utilisateurs qui commencent par la lettre
             $users = $usersRepo->createQueryBuilder('u')
                 ->where('u.username LIKE :query')
                 ->setParameter('query', $query . '%')
@@ -419,7 +419,7 @@ class ProjectsController extends AbstractController
             throw $this->createNotFoundException('Category not found.');
             }
 
-            // 🔹 Récupérer les projets les plus likés de cette catégorie
+            //  Récupérer les projets les plus likés de cette catégorie
             $topProjects = $projectsRepo->findTopProjectsByCategory($id, 10);
 
             return $this->render('projects/category-project.html.twig', [

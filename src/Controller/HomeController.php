@@ -16,7 +16,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /* Cette dirige vers la page "First-step" */
+    /* Cette page dirige vers la page "First-step" */
     #[Route('/First-step', name: 'app_first-step')]
     public function firstStep(): Response
     {
@@ -25,7 +25,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-    /* Cette dirige vers la page "Help" */
+    /* Cette page dirige vers la page "Help" */
     #[Route('/Help', name: 'app_help-page')]
     public function helpPage(): Response
     {
@@ -34,7 +34,7 @@ class HomeController extends AbstractController
         ]);
     }
 
-     /* Cette dirige vers la page "Event" */
+     /* Cette page dirige vers la page "Event" */
     #[Route('/Event', name: 'app_event-page')]
     public function eventPage(): Response
     {
