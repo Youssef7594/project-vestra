@@ -78,7 +78,7 @@ function moveCarousel(direction) {
             let imageFiles = document.querySelectorAll('input[name="images[]"]');
             let videoFiles = document.querySelectorAll('input[name="videos[]"]');
             let maxSize = 100 * 1024 * 1024; // 100MB
-            let maxFiles = 2; // On limite à 5 fichiers max
+            let maxFiles = 2; 
 
             function checkFiles(files, type) {
                 let totalFiles = 0;

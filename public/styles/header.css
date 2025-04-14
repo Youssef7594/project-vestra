@@ -134,14 +134,14 @@ h1 a {
     .ul-un.show, .ul-deux.show {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centrer les éléments */
+        align-items: center; 
         
     }
 
     .ul-un.show ul{
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centrer les éléments */
+        align-items: center; 
         background-color: #0b0a0a7e;
         
     }
@@ -150,8 +150,8 @@ h1 a {
     .ul-un li, .ul-deux li {
         
         margin-top: 10px;
-        margin-bottom: 10px; /* Espacement entre les éléments */
-        font-size: 18px; /* Ajuster la taille des éléments */
+        margin-bottom: 10px; 
+        font-size: 18px; 
     }
 
     
@@ -209,7 +209,7 @@ nav.scrolled {
     position: absolute;
     top: -5px;
     right: -5px;
-    background-color: #ff4d4d; /* Rouge vif pour attirer l'attention */
+    background-color: #ff4d4d; 
     color: white;
     font-size: 12px;
     font-weight: bold;
@@ -240,7 +240,7 @@ nav.scrolled {
 
 /* Lorsque l'on survole le lien avec la souris */
 .messages-link:hover {
-    color: #007bff; /* Changer la couleur du texte au survol */
+    color: #007bff; 
 }
 
 

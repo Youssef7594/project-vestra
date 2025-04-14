@@ -156,9 +156,9 @@
 
         .carousel-item img,
         .carousel-item video {
-        object-fit: contain;  /* L'image ou la vidéo s'adapte sans être coupée, et se rétrécit si nécessaire */
-        width: 100%;           /* Prend toute la largeur du carrousel */
-        height: 100%;  /* Prend toute la hauteur du carrousel */
+        object-fit: contain;  
+        width: 100%;           
+        height: 100%; 
 
         
     }
