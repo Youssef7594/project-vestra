@@ -46,9 +46,9 @@ public function pageUsers(Request $request, ProjectsRepository $projectsRepo, Sl
      // Configuration Cloudinary
      $cloudinary = new Cloudinary([
         'cloud' => [
-            'cloud_name' => 'dpoyy28vx',
-            'api_key'    => '938262289541242',
-            'api_secret' => 'HTYJNiTQhZoQiXA2R19V9aDc1z8',
+            'cloud_name' => $_ENV['CLOUDINARY_CLOUD_NAME'],
+            'api_key'    => $_ENV['CLOUDINARY_API_KEY'],
+            'api_secret' => $_ENV['CLOUDINARY_API_SECRET'],
         ]
     ]);
 
