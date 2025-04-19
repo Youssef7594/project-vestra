@@ -33,7 +33,7 @@ public function network(UsersRepository $usersRepo): Response
     return $this->render('users/network.html.twig', [
         'recruteurs' => $recruteurs,
         'talents' => $talents,
-    ]);
+    ]); 
 }
 
 
@@ -61,7 +61,7 @@ public function pageUsers(Request $request, ProjectsRepository $projectsRepo, Sl
   $projects = $projectsRepo->findBy(['user_id' => $user->getId()]);
 
   // Créer et gérer le formulaire de profil utilisateur
-  $form = $this->createForm(UserProfileType::class, $user);
+  $form = $this->createForm(UserProfileType::class, $user );
   $form->handleRequest($request);
 
   if ($form->isSubmitted() && $form->isValid()) {
@@ -102,10 +102,11 @@ public function pageUsers(Request $request, ProjectsRepository $projectsRepo, Sl
 
   // Rendre la vue du profil avec les données utilisateur et projets
   return $this->render('users/index.html.twig', [
-      'user' => $user,
-      'projects' => $projects,
-      'roles' => $roles, // Ajouter les rôles à la vue
-      'form' => $form->createView(),
+        
+        'user' => $user,
+        'projects' => $projects,
+        'roles' => $roles, // Ajouter les rôles à la vue
+        'form' => $form->createView(),
   
 ]);
 
@@ -146,12 +147,51 @@ public function pageUsersLink(int $id, UsersRepository $usersRepo, ProjectsRepos
     ]);
     $form->handleRequest($request);
 
+
+    /* Tout le bloc d'envoie d'image vers cloudinary  */
+
     if ($form->isSubmitted() && $form->isValid()) {
-        // Traitement du formulaire ici
+        if ($isOwner) {
+            $cloudinary = new Cloudinary([
+                'cloud' => [
+                    'cloud_name' => $_ENV['CLOUDINARY_CLOUD_NAME'],
+                    'api_key'    => $_ENV['CLOUDINARY_API_KEY'],
+                    'api_secret' => $_ENV['CLOUDINARY_API_SECRET'],
+                ]
+            ]);
+    
+            $profilePictureFile = $form->get('profile_picture')->getData();
+            if ($profilePictureFile) {
+                try {
+                    $uploadResult = $cloudinary->uploadApi()->upload($profilePictureFile->getPathname(), [
+                        'folder' => 'users/profile_pictures',
+                        'public_id' => uniqid()
+                    ]);
+                    $user->setProfilePicture($uploadResult['secure_url']);
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Erreur lors de l\'upload de la photo de profil.');
+                }
+            }
+    
+            $backgroundImageFile = $form->get('background_image')->getData();
+            if ($backgroundImageFile) {
+                try {
+                    $uploadResult = $cloudinary->uploadApi()->upload($backgroundImageFile->getPathname(), [
+                        'folder' => 'users/background_images',
+                        'public_id' => uniqid()
+                    ]);
+                    $user->setBackgroundImage($uploadResult['secure_url']);
+                } catch (\Exception $e) {
+                    $this->addFlash('error', 'Erreur lors de l\'upload de l\'image de fond.');
+                }
+            }
+        }
+    
         $entityManager->flush();
         $this->addFlash('success', 'Profil mis à jour avec succès!');
         return $this->redirectToRoute('app_profile', ['id' => $user->getId()]);
     }
+    
 
     return $this->render('users/index.html.twig', [
         'user' => $user,
